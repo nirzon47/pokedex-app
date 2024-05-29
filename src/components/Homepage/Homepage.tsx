@@ -1,16 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import Loading from '@/components/global/Loading'
 import axios from 'axios'
 import Error from '@/components/global/Error'
+import HomepagePokemon from './HomepagePokemon'
+import { genType } from '@/lib/types'
 
-const Homepage = ({
-	generation,
-	setGeneration,
-}: {
-	generation: number
-	setGeneration: React.Dispatch<React.SetStateAction<number>>
-}) => {
+const Homepage = ({ generation }: { generation: number }) => {
 	const {
 		isPending,
 		isError,
@@ -21,7 +17,7 @@ const Homepage = ({
 		queryFn: () =>
 			axios
 				.get(`https://pokeapi.co/api/v2/generation/${generation}`)
-				.then((res) => res.data),
+				.then((res) => res.data as genType),
 	})
 
 	if (isPending) {
@@ -34,9 +30,7 @@ const Homepage = ({
 
 	return (
 		<View>
-			{genData.pokemon_species.map((pokemon: any) => (
-				<Text key={pokemon.name}>{pokemon.name}</Text>
-			))}
+			<HomepagePokemon genData={genData.pokemon_species} />
 		</View>
 	)
 }
