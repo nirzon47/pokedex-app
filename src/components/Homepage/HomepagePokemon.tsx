@@ -11,7 +11,14 @@ const HomepagePokemon = ({ genData }: { genData: genDataType[] }) => {
 		queries: genData.map((pokemon) => {
 			return {
 				queryKey: ['pokemon', pokemon.name],
-				queryFn: () => axios.get(pokemon.url).then((res) => res.data),
+				queryFn: () =>
+					axios
+						.get(
+							`https://pokeapi.co/api/v2/pokemon/${
+								pokemon.url.split('/')[6]
+							}`
+						)
+						.then((res) => res.data),
 				enabled: !!pokemon.url,
 			}
 		}),
@@ -26,7 +33,7 @@ const HomepagePokemon = ({ genData }: { genData: genDataType[] }) => {
 	}
 
 	return (
-		<View>
+		<View className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 lg:gap-4 my-8'>
 			{pokemonQueries
 				.sort((o1, o2) => o1.data.id - o2.data.id)
 				.map((query) => {
