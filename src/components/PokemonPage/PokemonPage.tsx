@@ -34,10 +34,10 @@ const PokemonPage = ({ id }: { id: string }) => {
 					colorTypeMap(data.types[0].type.name)
 				)}
 			>
-				<View className='h-72 z-50 relative'>
+				<View className='h-80 z-50 relative'>
 					<PokemonSplash />
 
-					<View className='mt-20 px-6 flex-col flex gap-2'>
+					<View className='mt-32 px-6 flex-col flex gap-2'>
 						<Text className='text-2xl text-white capitalize font-bold'>
 							{data.name}
 						</Text>
@@ -66,14 +66,14 @@ const PokemonPage = ({ id }: { id: string }) => {
 								width: 150,
 								height: 150,
 								position: 'absolute',
-								top: 0,
+								top: -30,
 								zIndex: 50,
 							}}
 							contentFit='contain'
 						/>
 					</View>
 				</View>
-				<View className='h-[calc(100vh-18rem)] bg-white rounded-t-3xl z-20'></View>
+				<View className='h-[calc(100vh-20rem)] bg-white rounded-t-3xl z-20'></View>
 			</View>
 		</View>
 	)

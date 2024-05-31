@@ -9,9 +9,9 @@ const PokemonDetails = () => {
 	return (
 		<View className='relative'>
 			{/* Header */}
-			<View className='absolute top-0 flex flex-row h-8 items-center justify-between z-50 w-screen px-6 py-12'>
-				<Link href='/'>
-					<ChevronLeft className='text-white' />
+			<View className='absolute top-4 flex flex-row h-8 items-center justify-between z-50 w-screen px-6 pt-20'>
+				<Link replace href='/' asChild>
+					<ChevronLeft className='text-white h-8 w-8 flex items-center justify-center' />
 				</Link>
 				<Heart className='text-white' />
 			</View>

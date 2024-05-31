@@ -33,7 +33,7 @@ const HomepagePokemon = ({ genData }: { genData: genDataType[] }) => {
 	}
 
 	return (
-		<View className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 lg:gap-4 my-8'>
+		<View className='flex flex-row flex-wrap justify-between my-8'>
 			{pokemonQueries
 				.sort((o1, o2) => o1.data.id - o2.data.id)
 				.map((query) => {

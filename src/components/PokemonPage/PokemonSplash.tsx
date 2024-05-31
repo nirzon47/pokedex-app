@@ -31,7 +31,7 @@ const PokemonSplash = () => {
 					height: 50,
 					opacity: 0.1,
 					top: -110,
-					right: 10,
+					left: -10,
 				}}
 			/>
 		</View>
